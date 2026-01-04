@@ -12,13 +12,12 @@ import java.util.Set;
 
 public class HandyNews {
 
-    private final HandyClient client;
+    private final HandyClient client = new HandyClient();
 
     public HandyNews(Set<String> sources) throws IOException {
         Properties props = new Properties();
         props.load(HandyNews.class.getClassLoader().getResourceAsStream("newsapi.properties"));
-        client = new HandyClient()
-                .url(String.format("%s/top-headlines?apiKey=%s&sources=%s",
+        client.url(String.format("%s/top-headlines?apiKey=%s&sources=%s",
                         props.getProperty("newsapi.url"),
                         props.getProperty("newsapi.key"),
                         String.join(",", sources)));
