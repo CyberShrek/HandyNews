@@ -17,7 +17,7 @@ public class HandyNews {
     public HandyNews(Set<String> sources) throws IOException {
         Properties props = new Properties();
         props.load(HandyNews.class.getClassLoader().getResourceAsStream("newsapi.properties"));
-        client.url(String.format("%s/top-headlines?apiKey=%s&sources=%s",
+        client.url(String.format("%s?apiKey=%s&sources=%s",
                         props.getProperty("newsapi.url"),
                         props.getProperty("newsapi.key"),
                         String.join(",", sources)));
