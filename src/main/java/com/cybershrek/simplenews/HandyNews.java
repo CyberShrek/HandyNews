@@ -14,9 +14,13 @@ public class HandyNews {
 
     private final HandyClient client = new HandyClient();
 
-    public HandyNews(Set<String> sources) throws IOException {
+    public HandyNews(Set<String> sources) {
         Properties props = new Properties();
-        props.load(HandyNews.class.getClassLoader().getResourceAsStream("newsapi.properties"));
+        try {
+            props.load(HandyNews.class.getClassLoader().getResourceAsStream("newsapi.properties"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         client.url(String.format("%s?apiKey=%s&sources=%s",
                         props.getProperty("newsapi.url"),
                         props.getProperty("newsapi.key"),
