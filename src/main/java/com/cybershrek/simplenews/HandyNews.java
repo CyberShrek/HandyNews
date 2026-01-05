@@ -1,10 +1,10 @@
 package com.cybershrek.simplenews;
 
-import com.cybershrek.http.HandyClient;
-import com.cybershrek.parser.JSON;
+import com.cybershrek.tools.HandyClient;
+import com.cybershrek.tools.HandyResources;
+import com.cybershrek.tools.JSON;
 import com.cybershrek.simplenews.model.NewsArticle;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -15,12 +15,7 @@ public class HandyNews {
     private final HandyClient client = new HandyClient();
 
     public HandyNews(Set<String> sources) {
-        Properties props = new Properties();
-        try {
-            props.load(HandyNews.class.getClassLoader().getResourceAsStream("newsapi.properties"));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        Properties props = HandyResources.loadProperties("newsapi.properties");
         client.url(String.format("%s?apiKey=%s&sources=%s",
                         props.getProperty("newsapi.url"),
                         props.getProperty("newsapi.key"),

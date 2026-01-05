@@ -17,12 +17,7 @@
     <dependencies>
         <dependency>
             <groupId>com.cybershrek</groupId>
-            <artifactId>HandyHttp</artifactId>
-            <version>1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.cybershrek</groupId>
-            <artifactId>HandyParser</artifactId>
+            <artifactId>HandyTools</artifactId>
             <version>1.0</version>
         </dependency>
     </dependencies>
