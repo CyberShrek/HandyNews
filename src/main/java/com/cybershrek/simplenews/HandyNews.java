@@ -15,7 +15,7 @@ public class HandyNews {
     private final HandyClient client = new HandyClient();
 
     public HandyNews(Set<String> sources) {
-        Properties props = HandyResources.loadProperties("newsapi.properties");
+        Properties props = HandyResources.loadProperties("private.properties");
         client.url(String.format("%s?apiKey=%s&sources=%s",
                         props.getProperty("newsapi.url"),
                         props.getProperty("newsapi.key"),
